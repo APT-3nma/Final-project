@@ -26,7 +26,7 @@ async def chat(ctx,*args):
         return
     async with ctx.typing():
         try:
-            response = await client.aio.models.generate_content(model=model_name, contents=question, config=types.GenerateContentConfig(max_output_tokens=2000))
+            response = await client.aio.models.generate_content(model=model_name, contents=question, config=types.GenerateContentConfig(max_output_tokens=1900))
             full_text = response.text
 
             if len(full_text) <= 2000:
@@ -49,7 +49,7 @@ async def ask(ctx, *, question):
        if userID not in user_chats:
         user_chats[userID] = client.aio.chats.create(model=model_name)
         chatSession = user_chats[userID]
-        response = await chatSession.send_message(question, config=types.GenerateContentConfig(max_output_tokens=2000))
+        response = await chatSession.send_message(question, config=types.GenerateContentConfig(max_output_tokens=1900))
         full_text = response.text
         if len(full_text) <= 2000:
             await msg.edit(content=full_text)
