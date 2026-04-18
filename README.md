@@ -6,4 +6,4 @@ Ryzen is a bot with artifical intelligence that can work as a research mate. You
 
 **Update**
 
-Ryzen has succesfully being integrated with the AI servers, but we still experience some streaming issues specially when it comes for him to return an answer.
+Ryzen has been successfully integrated with the AI servers, but we still experience some streaming issues specially when it comes for him to return an answer.
