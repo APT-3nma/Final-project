@@ -2,15 +2,15 @@ import discord
 from discord.ext import commands
 from os import getenv
 from dotenv import load_dotenv
-from google.genai import Client
+from google.genai import Client, types
 
 load_dotenv()
 client = Client(api_key=getenv('GEN_KEY'))
-
-# Use a Gemini model supported by the v1beta generate_content API
-model_name = 'gemini-2.5-flash'
 Intents = discord.Intents.default()
 Intents.message_content = True
+model_name = 'gemini-2.5-flash'
+
+
 
 
 AIFeature = commands.Bot(command_prefix="!", intents=Intents)
@@ -26,9 +26,9 @@ async def chat(ctx,*args):
         return
     async with ctx.typing():
         try:
-            response = await client.aio.models.generate_content(model=model_name, contents=question)
+            response = await client.aio.models.generate_content(model=model_name, contents=question, config=types.GenerateContentConfig(max_output_tokens=2000))
             full_text = response.text
-            # Sistema de rebanado por si acaso ignora la instrucción de brevedad
+
             if len(full_text) <= 2000:
                 await ctx.send(full_text)
             else:
@@ -39,11 +39,17 @@ async def chat(ctx,*args):
         
         except Exception as exc:
             await ctx.send(f"Error: {exc}")
+
+user_chats={}
 @AIFeature.command()
 async def ask(ctx, *, question):
+    userID = ctx.author.id
     msg = await ctx.send("Thinking... 🧠")
     try:
-        response = await client.aio.models.generate_content(model=model_name, contents=question)
+       if userID not in user_chats:
+        user_chats[userID] = client.aio.chats.create(model=model_name)
+        chatSession = user_chats[userID]
+        response = await chatSession.send_message(question, config=types.GenerateContentConfig(max_output_tokens=2000))
         full_text = response.text
         if len(full_text) <= 2000:
             await msg.edit(content=full_text)
@@ -55,5 +61,6 @@ async def ask(ctx, *, question):
     
     except Exception as exc:
         await msg.edit(content = f"Error contacting Server: {exc}")
+    
 
 AIFeature.run(getenv('TOKEN'))
