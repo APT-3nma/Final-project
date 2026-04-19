@@ -7,8 +7,14 @@ import random
 
 
 load_dotenv()
-keys = [getenv('GEN_KEY'), getenv('GEN_KEY2'), getenv('GEN_KEY3')]
-client = Client(api_key=random.choice(keys))
+
+all_keys = [getenv('GEN_KEY'), getenv('GEN_KEY2'), getenv('GEN_KEY3')]  
+keys = [k for k in all_keys if k is not None]
+if not keys:
+    print("Error: No API keys found in .env file.")
+else:
+    client = Client(api_key=random.choice(keys))
+
 Intents = discord.Intents.default()
 Intents.message_content = True
 model_name = 'gemini-2.5-flash'
