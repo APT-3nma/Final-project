@@ -23,3 +23,5 @@ Vortex has been updated with a new feature which is memory or context, what I me
 Vortex can get "crahsed" sometimes as mentioned earlier some things are in process of being solve but they haven't been solved yet.
 
 **A (Import Random) library have been included as the API key has a RPM limit 3 more keys have been added so whenever one key gets overloaded the bot select another one to keep texting.**
+
+**This new feature can cause server overloading which is in process of being solve, some errors like 503 and 429 can be expected due to this server overrloading issue**
