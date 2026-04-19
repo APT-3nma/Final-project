@@ -15,3 +15,7 @@ Vortex has been successfully integrated with the AI servers, but we still experi
 A new segment of code have been added for situations where you DM Vortex now you don't need a command prefix if you are on Direct Messages.
 
 **Note**: The command prefix is needed only inside the testing server.
+
+**Tecnical Note**
+
+Vortex has been updated with a new feature which is memory or context, what I mean is that Vortex is able to remember past conversations of the user. This feature works independently if you use !ask, !chat or if you send a DM.
