@@ -26,7 +26,7 @@ async def chat(ctx,*args):
         return
     async with ctx.typing():
         try:
-            response = await client.aio.models.generate_content(model=model_name, contents=question, config=types.GenerateContentConfig(max_output_tokens=1900))
+            response = await client.aio.models.generate_content(model=model_name, contents=question, config=types.GenerateContentConfig(max_output_tokens=2000))
             full_text = response.text
 
             if len(full_text) <= 2000:
@@ -49,7 +49,7 @@ async def ask(ctx, *, question):
        if userID not in user_chats:
         user_chats[userID] = client.aio.chats.create(model=model_name)
         chatSession = user_chats[userID]
-        response = await chatSession.send_message(question, config=types.GenerateContentConfig(max_output_tokens=1900))
+        response = await chatSession.send_message(question, config=types.GenerateContentConfig(max_output_tokens=1000))
         full_text = response.text
         if len(full_text) <= 2000:
             await msg.edit(content=full_text)
@@ -61,6 +61,20 @@ async def ask(ctx, *, question):
     
     except Exception as exc:
         await msg.edit(content = f"Error contacting Server: {exc}")
+#This line is extra is just to avoid using command prefix when messaging privately or DM.
+@AIFeature.event
+async def on_message(message):
+    if message.author == AIFeature.user:
+        return
+    if not message.content.startswith("!"):
+        if AIFeature.user.mentioned_in(message) or isinstance(message.channel, discord.DMChannel):
+            cleanContent = message.content.replace(f"<@{AIFeature.user.id}>", "").replace(f"<@!{AIFeature.user.id}>", "").strip()
+            if cleanContent:
+                ctx = await AIFeature.get_context(message)
+                await ask(ctx, question=cleanContent)
+    await AIFeature.process_commands(message)
+
+    
     
 
 AIFeature.run(getenv('TOKEN'))
