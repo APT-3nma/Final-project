@@ -10,4 +10,5 @@ Vortex has been successfully integrated with the AI servers, but we still experi
 
 **Update**
 
-A new segment of code have been added for situations where you DM Vortex now you don't need a command prefix if you are on Direct Messages **Note**: The command prefix is needed only inside the testing server.
+A new segment of code have been added for situations where you DM Vortex now you don't need a command prefix if you are on Direct Messages.
+**Note**: The command prefix is needed only inside the testing server.
