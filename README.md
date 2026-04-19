@@ -21,3 +21,5 @@ A new segment of code have been added for situations where you DM Vortex now you
 Vortex has been updated with a new feature which is memory or context, what I mean is that Vortex is able to remember past conversations of the user. This feature works independently if you use !ask, !chat or if you send a DM.
 
 Vortex can get "crahsed" sometimes as mentioned earlier some things are in process of being solve but they haven't been solved yet.
+
+A (Import Random) library have been included as the API key has a RPM limit 3 more keys have been added so whenever one key gets overloaded the bot select another one to keep texting.
