@@ -3,9 +3,12 @@ from discord.ext import commands
 from os import getenv
 from dotenv import load_dotenv
 from google.genai import Client, types
+import random
+
 
 load_dotenv()
-client = Client(api_key=getenv('GEN_KEY'))
+keys = [getenv('GEN_KEY'), getenv('GEN_KEY2'), getenv('GEN_KEY3')]
+client = Client(api_key=random.choice(keys))
 Intents = discord.Intents.default()
 Intents.message_content = True
 model_name = 'gemini-2.5-flash'
@@ -45,6 +48,8 @@ user_chats={}
 async def ask(ctx, *, question):
     userID = ctx.author.id
     msg = await ctx.send("Thinking... 🧠")
+    current_key = random.choice(keys)
+    client = Client(api_key=current_key)
     try:
        if userID not in user_chats:
         user_chats[userID] = client.aio.chats.create(model=model_name)
