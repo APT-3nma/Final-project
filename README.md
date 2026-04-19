@@ -1,9 +1,13 @@
-# 🌟 Ryzen 
-Ryzen is a bot with artifical intelligence that can work as a research mate. You can ask question to Ryzen and he will reply with an exact answer, it can also help you to create study guides.
+# <img width="498" height="498" alt="InductionHypnoGIF" src="https://github.com/user-attachments/assets/bcff6f03-bfd4-453c-b057-990951bd8636" /> Vortex 
+Vortex is a bot with artifical intelligence that can work as a research mate. You can ask question to Ryzen and he will reply with an exact answer, it can also help you to create study guides.
 
-**Ryzen is in its early stage Bugs and other defects haven't been fixed**
+**Vortex is in its early stage Bugs and other defects haven't been fixed**
 
 
 **Update**
 
-Ryzen has been successfully integrated with the AI servers, but we still experience some streaming issues specially when it comes for him to return a long answer.
+Vortex has been successfully integrated with the AI servers, but we still experience some streaming issues specially when it comes for him to return a long answer.
+
+**Update**
+
+A new segment of code have been added for situations where you DM Vortex now you don't need a command prefix if you are on Direct Messages **Note**: The command prefix is needed only inside the testing server.
