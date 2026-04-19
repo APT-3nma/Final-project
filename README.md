@@ -19,3 +19,5 @@ A new segment of code have been added for situations where you DM Vortex now you
 **Tecnical Note**
 
 Vortex has been updated with a new feature which is memory or context, what I mean is that Vortex is able to remember past conversations of the user. This feature works independently if you use !ask, !chat or if you send a DM.
+
+Vortex can get "crahsed" sometimes as mentioned earlier some things are in process of being solve but they haven't been solved yet.
