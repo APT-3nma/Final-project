@@ -18,11 +18,33 @@ else:
 Intents = discord.Intents.default()
 Intents.message_content = True
 model_name = 'gemini-2.5-flash'
-
-
-
-
 AIFeature = commands.Bot(command_prefix="!", intents=Intents)
+
+stream_update_interval = 50
+@AIFeature.command()
+async def send_streamed(ctx, stream, msg):
+    accumulated = ""
+    l_update_len = 0 
+    
+    async for chunk in stream:
+        accumulated += chunk.text
+        if len(accumulated) - l_update_len >= stream_update_interval:
+            display = accumulated[:1900] + "..." if len(accumulated) >  1900 else accumulated
+            await msg.edit(content=display)
+            l_update_len = len(accumulated)
+    if not accumulated:
+        await msg.edit(content="I was unable to generate a response.")
+        return
+    
+    if len(accumulated) <= 1900:
+        await msg.edit(content=accumulated)
+    else:
+        await msg.edit(content=accumulated[:1900])
+        for i in range(1900, len(accumulated), 1900):
+            await ctx.send(accumulated[i:i+1900])
+
+
+
 
 @AIFeature.command()
 async def  test(ctx,*args):
@@ -33,45 +55,34 @@ async def chat(ctx,*args):
     question = " ".join(args)
     if not question:
         return
-    async with ctx.typing():
-        try:
-            response = await client.aio.models.generate_content(model=model_name, contents=question, config=types.GenerateContentConfig(max_output_tokens=2000))
-            full_text = response.text
+    msg = await ctx.send("Thinking... 🧠")
+    try:
+        stream = await client.aio.models.generate_content_stream(model=model_name, contents=question, config=types.GenrateContentConfig(max_output_tokens=2000))
+        await send_streamed(ctx, stream, msg)
+#Stream included in chat command as well for ask command. 
+#This integrations allow a faster response time and less waiting time.
 
-            if len(full_text) <= 2000:
-                await ctx.send(full_text)
-            else:
-                for i in range(0, len(full_text), 1900):
-                    await ctx.send(full_text[i:i+1900])
-
-            
-        
-        except Exception as exc:
-            await ctx.send(f"Error: {exc}")
+    except Exception as exc:
+        await msg.edit(content=f"Error: {exc}")
 
 user_chats={}
 @AIFeature.command()
 async def ask(ctx, *, question):
     userID = ctx.author.id
     msg = await ctx.send("Thinking... 🧠")
-    current_key = random.choice(keys)
-    client = Client(api_key=current_key)
     try:
-       if userID not in user_chats:
-        user_chats[userID] = client.aio.chats.create(model=model_name)
+        if userID not in user_chats:
+            current_key = random.choice(keys)
+            session_client = Client(api_key=current_key)
+            user_chats[userID] = session_client.aio.chats.create(model=model_name)
+# Stream response included in ask command.
         chatSession = user_chats[userID]
-        response = await chatSession.send_message(question, config=types.GenerateContentConfig(max_output_tokens=1000))
-        full_text = response.text
-        if len(full_text) <= 2000:
-            await msg.edit(content=full_text)
-        else:
-            await msg.delete()
-            for i in range(0, len(full_text), 1900):
-                await ctx.send(full_text[i:i+1900])
-        
-    
+        stream = await chatSession.send_message_stream(question, config=types.GenerateContentConfig(max_output_tokens=2000))
+        await send_streamed(ctx, stream, msg)
+
     except Exception as exc:
-        await msg.edit(content = f"Error contacting Server: {exc}")
+        await msg.edit(content=f"Error contacting server: {exc}")
+  
 #This line is extra is just to avoid using command prefix when messaging privately or DM.
 @AIFeature.event
 async def on_message(message):
