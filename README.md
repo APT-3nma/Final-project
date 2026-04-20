@@ -16,7 +16,7 @@ A new segment of code have been added for situations where you DM Vortex now you
 
 **Note**: The command prefix is needed only inside the testing server.
 
-**Tecnical Note**
+**Technical Note**
 
 Vortex has been updated with a new feature which is memory or context, what I mean is that Vortex is able to remember past conversations of the user. This feature works independently if you use !ask, !chat or if you send a DM.
 
@@ -28,8 +28,8 @@ Vortex can get "crashed" sometimes as mentioned earlier some things are in proce
 
 **Update**
 
-We managed to include the streaming function new features comming soon.
+We managed to include the streaming function new features coming soon.
 
-**Tecnical Note**
+**Technical Note**
 
-**<-Errors like 503 and 429 haven't been solve yet, and due to server high demand crashes can be expected**
+**<-Errors like 503 and 429 haven't been solved yet, and due to server high demand crashes can be expected**
