@@ -2,7 +2,7 @@
 
 ## What will (likely) be the title of your project?
 
-Project X Ryzen AI
+Project X Vortex CR
 
 ## In just a sentence or two, summarize your project. (E.g., "A website that lets you buy and sell stocks.")
 
@@ -10,7 +10,7 @@ A discord bot that combined with a google gemini API, can take questions and giv
 
 ## In a paragraph or more, detail your project. What will your software do? What features will it have? How will it be executed?
 
-Ryzen will be a bot for discord that using that same platform can take questions request. 
+Vortex will be a bot for discord that using that same platform can take questions request. 
 Along with this the bot will be combined with Google genAI API so the answers can be clear enough.
 
 ## If planning to combine 1051's final project with another course's final project, with which other course? And which aspect(s) of your proposed project would relate to 1051, and which aspect(s) would relate to the other course?
