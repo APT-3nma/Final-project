@@ -33,3 +33,11 @@ We managed to include the streaming function new features coming soon.
 **Technical Note**
 
 **<-Errors like 503 and 429 haven't been solved yet, and due to server high demand crashes can be expected**
+
+**Update**
+
+Vortex is able to chat and reply properly sometimes it can take a little bit of time if the answer is too long.
+
+**Technical Note**
+
+**<-Errors 503 and 429 are not solved yet, these errors are occuring because of the Request Per Minute limit and even though we added three API keys the RPM limit applies to all three of them.**
