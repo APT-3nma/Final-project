@@ -41,3 +41,7 @@ Vortex is able to chat and reply properly sometimes it can take a little bit of 
 **Technical Note**
 
 **<-Errors 503 and 429 are not solved yet, these errors are occuring because of the Request Per Minute limit and even though we added three API keys the RPM limit applies to all three of them.**
+
+**Demo Video**
+
+https://youtu.be/N5olbBqt4oo
