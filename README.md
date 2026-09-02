@@ -115,7 +115,8 @@ Apollo is an artificial intelligence inside discord with functions from a normal
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-**🏦BIM**
+
+**🏦 BIM**
 
 **Note: Developing in progress**
 
