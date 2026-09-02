@@ -54,9 +54,9 @@ https://youtu.be/N5olbBqt4oo
 
 # Apollo ☀️
 
-Helios is an artificial intelligence inside discord with functions from a normal chat bot to a Bot that you can speak with.
+Apollo is an artificial intelligence inside discord with functions from a normal chat bot to a Bot that you can speak with.
 
-**Helios is in Alpha phase it's being created an it's in the very first steps.**
+**Apollo is in Alpha phase it's being created an it's in the very first steps.**
 
 **Note: He doesn't work yet.**
 
