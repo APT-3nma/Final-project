@@ -57,4 +57,4 @@ Helios is an artificial intelligence inside discord with functions from a normal
 
 **Helios is in Alpha phase it's being created an it's in the very first steps.**
 
-**Note:** He doesn't work yet.
+**Note: He doesn't work yet.**
