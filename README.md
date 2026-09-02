@@ -120,7 +120,7 @@ Apollo is an artificial intelligence inside discord with functions from a normal
 
 **Note: Developing in progress**
 
-BIM or Business Inventory Management is a open source program to help business on managing their inventory, instead of doing manual inputs it uses the integration of AI to make the process faster, efficient and easier.
+BIM (Business Inventory Management) is an open-source system designed to help businesses manage their inventory. Instead of relying on manual data entry, BIM integrates AI to make the inventory processes faster, more efficient, and easier to scale.
 
 
 
