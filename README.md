@@ -115,7 +115,7 @@ Apollo is an artificial intelligence inside discord with functions from a normal
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-** Business Inventory Management(BIM) 🏦**
+**Business Inventory Management(BIM) 🏦**
 
 **Note: Developing in progress**
 
