@@ -1,13 +1,11 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
-    <!-- Información de tu Bot -->
-    <groupId>com.tuusuario</groupId>
-    <artifactId>discord-ai-bot</artifactId>
+
+    <groupId>com.helios</groupId>
+    <artifactId>HeliosBot</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -16,7 +14,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <!-- Aquí se descargan las extensiones automáticamente -->
+    <repositories>
+        <!-- Repositorio oficial para Lavaplayer -->
+        <repository>
+            <id>arbjergDev-releases</id>
+            <name>Lavalink Repository</name>
+            <url>https://maven.lavalink.dev/releases</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <!-- Conexión a Discord (JDA) -->
         <dependency>
@@ -25,27 +31,32 @@
             <version>5.3.0</version>
         </dependency>
 
-        <!-- Conexión a la Inteligencia Artificial de Google (Gemini) -->
+        <!-- Conexión a Google Gemini (LangChain4j) -->
         <dependency>
             <groupId>dev.langchain4j</groupId>
             <artifactId>langchain4j-google-ai-gemini</artifactId>
-            <version>1.0.0-beta1</version>
+            <version>0.35.0</version>
         </dependency>
-    <!--Dependencias para acceso a archivo environment variables-->
+
+        <!-- Variables de entorno (.env) -->
         <dependency>
             <groupId>io.github.cdimascio</groupId>
             <artifactId>dotenv-java</artifactId>
-            <version>3.1.2</version>
-
+            <version>3.0.0</version>
         </dependency>
-    <!--Dependencias para la voz--> 
+
+        <!-- Soporte de audio y voz (Lavaplayer) -->
         <dependency>
             <groupId>dev.arbjerg</groupId>
             <artifactId>lavaplayer</artifactId>
             <version>2.2.2</version>
         </dependency>
 
-
-        
+        <!-- Logger (SLF4J) -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.12</version>
+        </dependency>
     </dependencies>
 </project>
