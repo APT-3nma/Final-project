@@ -62,6 +62,9 @@ Apollo is an artificial intelligence inside discord with functions from a normal
 
 **Note: Apollo it's in early development, errors may occur and code need to be debugged**
 
+**Update**
+We are having trouble with the Maven files which leads to execution errors.
+
 
 
 
