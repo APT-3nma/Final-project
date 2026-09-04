@@ -65,8 +65,8 @@ Apollo is an artificial intelligence inside discord with functions from a normal
 **Update:**
 We are having trouble with the Maven files which leads to execution errors.
 
-**Update:** 
-The previous problems were solved, we are trying to run the project and test it but some bugs related with Maven, JDK version and xml file are slowing down the testings.
+**Status Update:** 
+Resolved initial Maven configuration issues. Currently running and testing the project; resolving minor configuration mismatches between the JDK version, `pom.xml`, and the IDE environment.
 
 
 
