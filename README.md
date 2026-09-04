@@ -47,13 +47,7 @@ Vortex is able to chat and reply properly sometimes it can take a little bit of 
 https://youtu.be/N5olbBqt4oo
 
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-
-# Helios☀️
-
-Helios is an artificial intelligence inside discord with functions from a normal chat bot to a Bot that you can speak with.
 
 **Helios is in Alpha phase it's being created an it's in the very first steps.**
 
